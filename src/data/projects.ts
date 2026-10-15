@@ -179,15 +179,15 @@ export const PROJECTS: Project[] = [
   p("8-9", "solo", "Term years", 20, "One president page", [
     "Write the president's name.",
     "Write each term with the start year.",
-    "Write the end year, or Still in office.",
+    "Write the end year, or now if the term has not ended.",
   ], "The terms match the page."),
   p("8-9", "solo", "Still here", 20, "One nation page and paper", [
     "Write where the homelands are.",
     "Write that many descendants live there now.",
   ], "Both ideas are in your note."),
   p("8-9", "solo", "Two numbers, one person", 15, "The Cleveland page", [
-    "Read why he is the 22nd president.",
-    "Read why he is also the 24th.",
+    "Read why he was the 22nd president.",
+    "Read why he was also the 24th president.",
     "Write two sentences about the two terms.",
   ], "Your note tells about both terms."),
   p("8-9", "team", "Teach and switch", 25, "Two state pages", [

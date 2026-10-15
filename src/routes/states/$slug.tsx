@@ -44,22 +44,33 @@ function StatePage() {
           </div>
           <div className="col-span-2 rounded-2xl border-2 border-flag-red bg-card p-3">
             <dt className="text-xs font-extrabold text-flag-red">Nickname</dt>
-            <dd>{state.nickname}</dd>
+            <dd className="text-lg font-extrabold">{state.nickname[0].toUpperCase() + state.nickname.slice(1)}</dd>
           </div>
         </dl>
         <p className="mt-4">
-          {neighbors.length === 0
-            ? `No state touches ${state.name} by land.`
-            : `These states touch ${state.name}: `}
-          {neighbors.map((neighbor, index) => (
-            <span key={neighbor.slug}>
-              {index > 0 ? ", " : ""}
-              <Link to="/states/$slug" params={{ slug: neighbor.slug }} className="font-extrabold underline">
-                {neighbor.name}
+          {neighbors.length === 0 ? (
+            `No state touches ${state.name} by land.`
+          ) : neighbors.length === 1 ? (
+            <>
+              <Link to="/states/$slug" params={{ slug: neighbors[0].slug }} className="font-extrabold underline">
+                {neighbors[0].name}
               </Link>
-            </span>
-          ))}
-          {neighbors.length > 0 ? "." : ""}
+              {` touches ${state.name}.`}
+            </>
+          ) : (
+            <>
+              {`These states touch ${state.name}: `}
+              {neighbors.map((neighbor, index) => (
+                <span key={neighbor.slug}>
+                  {index > 0 ? ", " : ""}
+                  <Link to="/states/$slug" params={{ slug: neighbor.slug }} className="font-extrabold underline">
+                    {neighbor.name}
+                  </Link>
+                </span>
+              ))}
+              .
+            </>
+          )}
         </p>
       </section>
       <section className="grid gap-3 sm:grid-cols-2 lg:col-span-2">

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { CultureMap } from "@/components/maps";
-import { NATIONS, REGIONS, type CultureRegion } from "@/data/nations";
+import { NATIONS, REGIONS, hasOtherName, type CultureRegion } from "@/data/nations";
 
 export const Route = createFileRoute("/nations/")({
   component: NationsPage,
@@ -48,7 +48,7 @@ function NationsPage() {
                 <span className="block text-xs font-extrabold text-flag-red">{nation.region}</span>
                 <span className="font-display text-3xl">{nation.name}</span>
               </span>
-              <span className="text-sm">Also called {nation.english}</span>
+              {hasOtherName(nation) ? <span className="text-sm">Also called {nation.english}</span> : null}
             </Link>
           </li>
         ))}

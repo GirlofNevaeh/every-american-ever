@@ -73,7 +73,7 @@ export const NATIONS: Nation[] = [
     english: "Creek",
     region: "Southeast",
     homelands: "Their homelands are in Alabama and Georgia. The Muscogee Nation is now also in Oklahoma.",
-    remember: "Muscogee towns joined together in a confederacy. Many people also say Creek.",
+    remember: "Muscogee towns joined together in a confederacy.",
     now: "Many Muscogee people live in Oklahoma and in the Southeast now.",
     people: [],
     today: "A hoodie",
@@ -237,4 +237,12 @@ const bySlug = new Map(NATIONS.map((n) => [n.slug, n]));
 
 export function getNation(slug: string): Nation | undefined {
   return bySlug.get(slug);
+}
+
+function foldName(value: string): string {
+  return value.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+}
+
+export function hasOtherName(nation: Nation): boolean {
+  return foldName(nation.name) !== foldName(nation.english);
 }

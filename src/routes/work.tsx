@@ -22,7 +22,7 @@ function WorkPage() {
       <section className="no-print grid gap-4 md:grid-cols-2">
         <article className="card p-4">
           <h2 className="font-display text-3xl">Map to label</h2>
-          <p className="mt-1 text-sm">Print the country and write the state names.</p>
+          <p className="mt-1 text-sm">Print the map and write the state names.</p>
           <button type="button" className="btn mt-3 bg-flag-blue text-white" onClick={() => printSheet("map")}>
             Print the map
           </button>
@@ -38,7 +38,7 @@ function WorkPage() {
       <div className="no-print flex flex-wrap gap-2">
         {AGE_BANDS.map((band) => (
           <button key={band} type="button" className={`btn text-sm ${age === band ? "bg-flag-red text-white" : "bg-flag-blue text-white"}`} onClick={() => setAge(band)}>
-            Age {band}
+            Ages {band.replace("-", "–")}
           </button>
         ))}
         <button type="button" className={`btn text-sm ${age === "all" ? "bg-flag-red text-white" : "border-2 border-flag-blue bg-card"}`} onClick={() => setAge("all")}>
@@ -48,7 +48,7 @@ function WorkPage() {
       <div className="no-print flex flex-col gap-8">
         {AGE_BANDS.filter((band) => age === "all" || age === band).map((band) => (
           <section key={band}>
-            <h2 className="font-display text-3xl">Age {band}</h2>
+            <h2 className="font-display text-3xl">Ages {band.replace("-", "–")}</h2>
             <div className={`mt-3 grid gap-3 ${band === "5-6" ? "md:grid-cols-1" : "md:grid-cols-2"}`}>
               {visible
                 .filter((item) => item.age === band)

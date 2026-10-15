@@ -1,5 +1,5 @@
 import { norm, ordinal } from "@/data/format";
-import { NATIONS } from "@/data/nations";
+import { NATIONS, hasOtherName } from "@/data/nations";
 import { PRESIDENCY, PRESIDENTS, getPresident, termLabel } from "@/data/presidents";
 import { STATES, getState } from "@/data/states";
 
@@ -294,15 +294,15 @@ function build(): Question[] {
     const q = make(
       nextId(),
       `Which nation uses the name ${nation.name}?`,
-      nation.english === nation.name ? nation.name : `${nation.name} (${nation.english})`,
+      hasOtherName(nation) ? `${nation.name} (${nation.english})` : nation.name,
       uniqueWrongs(
-        nation.english === nation.name ? nation.name : `${nation.name} (${nation.english})`,
-        NATIONS.map((item) => (item.english === item.name ? item.name : `${item.name} (${item.english})`)),
+        hasOtherName(nation) ? `${nation.name} (${nation.english})` : nation.name,
+        NATIONS.map((item) => (hasOtherName(item) ? `${item.name} (${item.english})` : item.name)),
         rng,
       ),
-      nation.english === nation.name
-        ? `${nation.name} is the name used here.`
-        : `${nation.name} is the name they use. Many people also say ${nation.english}.`,
+      hasOtherName(nation)
+        ? `${nation.name} is the name they use. Many people also say ${nation.english}.`
+        : `${nation.name} is the name used here.`,
       rng,
     );
     if (q) nationQs.push(q);
@@ -394,10 +394,10 @@ function build(): Question[] {
     "A Native nation is not the same thing as a state.",
   );
   push(
-    "Who is both the 22nd and the 24th president?",
+    "Who was both the 22nd and the 24th president?",
     "Grover Cleveland",
     ["Benjamin Harrison", "Theodore Roosevelt", "William Howard Taft"],
-    "Grover Cleveland served two terms that were not in a row. He is the 22nd and the 24th president.",
+    "Grover Cleveland served two terms that were not in a row. He was the 22nd and the 24th president.",
   );
   push(
     "Who is both the 45th and the 47th president?",
