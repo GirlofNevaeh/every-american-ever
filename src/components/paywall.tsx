@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { enterKey, safeNext } from "@/lib/gate";
 
+const PLANS_URL = "https://www.everyschoolever.com/pricing?plan=";
+
 export function Paywall({ next }: { next: string }) {
   const [key, setKey] = useState("");
   const [error, setError] = useState("");
@@ -54,6 +56,9 @@ export function Paywall({ next }: { next: string }) {
         >
           Enter key
         </button>
+        <a href={PLANS_URL} className="btn mt-3 w-full bg-flag-red text-white">
+          Choose a plan
+        </a>
         <Link to="/" search={{ next: undefined }} className="mt-3 block text-center font-extrabold text-flag-blue">
           Back to the home page
         </Link>

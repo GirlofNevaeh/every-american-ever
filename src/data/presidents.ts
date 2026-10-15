@@ -592,7 +592,7 @@ export const PRESIDENTS: President[] = [
       { start: 1893, end: 1897 },
     ],
     facts: [
-      "He is both the 22nd and the 24th president.",
+      "He was both the 22nd and the 24th president.",
       "He served, left office, and then became president again.",
     ],
     look: look({
@@ -1289,7 +1289,7 @@ export function getPresident(slug: string): President | undefined {
 }
 
 export function termLabel(term: Term): string {
-  if (term.end === null) return `${term.start}–Still in office`;
+  if (term.end === null) return `${term.start}–now`;
   if (term.start === term.end) return `${term.start}`;
   return `${term.start}–${term.end}`;
 }

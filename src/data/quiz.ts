@@ -11,6 +11,12 @@ export type Question = {
   why: string;
 };
 
+function lead(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) return trimmed;
+  return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
+}
+
 function mulberry32(seed: number) {
   let a = seed;
   return () => {
@@ -167,7 +173,7 @@ function build(): Question[] {
       `Which state has this symbol? ${symbol}.`,
       state.name,
       uniqueWrongs(state.name, names, rng),
-      `${symbol} is a symbol of ${state.name}.`,
+      `${symbol}. That is a symbol of ${state.name}.`,
       rng,
     );
     if (q) symbolQs.push(q);
@@ -175,7 +181,7 @@ function build(): Question[] {
 
   const placeQs: Question[] = [];
   for (const state of STATES.filter((_, i) => i % 3 === 2)) {
-    const place = places[STATES.indexOf(state)];
+    const place = lead(places[STATES.indexOf(state)]);
     const q = make(
       nextId(),
       `Which state is this place in? ${place}.`,
@@ -191,12 +197,14 @@ function build(): Question[] {
   for (const slot of PRESIDENCY) {
     const person = getPresident(slot.slug);
     if (!person) continue;
+    const term = person.terms[person.numbers.indexOf(slot.number)];
+    const verb = term?.end === null ? "is" : "was";
     const q = make(
       nextId(),
-      `Who was the ${ordinal(slot.number)} president?`,
+      `Who ${verb} the ${ordinal(slot.number)} president?`,
       person.name,
       uniqueWrongs(person.name, presidentNames, rng),
-      `${person.name} is the ${ordinal(slot.number)} president.`,
+      `${person.name} ${verb} the ${ordinal(slot.number)} president.`,
       rng,
     );
     if (q) numberQs.push(q);
@@ -250,7 +258,7 @@ function build(): Question[] {
   for (const [name, year] of diedInOffice) {
     const q = make(
       nextId(),
-      `Who died while he was president in ${year}?`,
+      `Who died in ${year} while he was president?`,
       name,
       uniqueWrongs(name, presidentNames, rng),
       `${name} died while he was president, in ${year}.`,
@@ -292,7 +300,9 @@ function build(): Question[] {
         NATIONS.map((item) => (item.english === item.name ? item.name : `${item.name} (${item.english})`)),
         rng,
       ),
-      `${nation.name} is the name they use. Many people also say ${nation.english}.`,
+      nation.english === nation.name
+        ? `${nation.name} is the name used here.`
+        : `${nation.name} is the name they use. Many people also say ${nation.english}.`,
       rng,
     );
     if (q) nationQs.push(q);

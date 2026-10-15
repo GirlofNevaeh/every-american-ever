@@ -67,7 +67,7 @@ function WorkPage() {
                         <li key={step}>{step}</li>
                       ))}
                     </ol>
-                    <p className="mt-3 border-t-2 border-flag-blue pt-2 text-sm font-extrabold">Finished when {item.done}</p>
+                    <p className="mt-3 border-t-2 border-current pt-2 text-sm font-extrabold">Done: {item.done}</p>
                   </article>
                 ))}
             </div>

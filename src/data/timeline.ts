@@ -554,12 +554,13 @@ export const PRESIDENT_STEPS: TimeStep[] = PRESIDENCY.map((slot) => {
           .map(ordinal)
           .join(" and ")} president.`
       : "";
+  const restated = /\d+(st|nd|rd|th) president/.test(person.facts[0]) ? person.facts[1] : person.facts[0];
   return {
     id: `p-${slot.number}`,
     era: "now",
     kicker: ordinal(slot.number),
     title: person.name,
-    body: `${person.name} ${current ? "is" : "was"} the ${ordinal(slot.number)} president, ${termLabel(term)}.${extra} ${person.facts[0]}`,
+    body: `${person.name} ${current ? "is" : "was"} the ${ordinal(slot.number)} president, ${termLabel(term)}.${extra} ${restated}`,
     kind: "presidents",
     href: `/presidents/${person.slug}?n=${slot.number}`,
     hrefLabel: "Open this page",
