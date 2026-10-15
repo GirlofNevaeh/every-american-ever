@@ -1,7 +1,8 @@
-import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+import { createRootRoute, HeadContent, Outlet, Scripts, redirect } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { SiteLayout } from "@/components/shell";
+import { hasAccess, safeNext } from "@/lib/gate";
 import { QUIZ } from "@/data/quiz";
 import { PROJECTS } from "@/data/projects";
 import { STATES } from "@/data/states";
@@ -17,6 +18,18 @@ if (QUIZ.length !== 250) throw new Error(`Expected 250 questions, got ${QUIZ.len
 if (PROJECTS.length !== 63) throw new Error(`Expected 63 projects, got ${PROJECTS.length}`);
 
 export const Route = createRootRoute({
+  headers: () => ({
+    "Cache-Control": "private, no-store",
+  }),
+  beforeLoad: async ({ location }) => {
+    const path = location.pathname;
+    if (path === "/") return;
+    const open = await hasAccess();
+    if (!open) {
+      const next = safeNext(`${path}${location.searchStr}${location.hash}`);
+      throw redirect({ to: "/", search: { next: next || "/states" } });
+    }
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
