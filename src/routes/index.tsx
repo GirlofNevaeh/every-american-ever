@@ -1,17 +1,28 @@
 import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Portrait } from "@/components/portrait";
+import { Paywall } from "@/components/paywall";
 import { SearchBox } from "@/components/shell";
 import { StateOutline } from "@/components/maps";
 import { getPresident, PRESIDENTS } from "@/data/presidents";
 import { STATES } from "@/data/states";
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/")({
+  validateSearch: (search: Record<string, unknown>): { next?: string } => {
+    if (typeof search.next === "string" && search.next.startsWith("/") && !search.next.startsWith("//")) {
+      return { next: search.next.slice(0, 300) };
+    }
+    return {};
+  },
+  component: Home,
+});
 
 const stripStates = ["california", "texas", "florida", "new-york", "michigan", "alaska", "hawaii", "colorado"];
 const stripPresidents = ["george-washington", "abraham-lincoln", "theodore-roosevelt", "john-f-kennedy", "barack-obama", "donald-trump"];
 
 function Home() {
+  const { next } = Route.useSearch();
   const navigate = useNavigate();
+  if (next) return <Paywall next={next} />;
 
   function surprise() {
     const pool = [
