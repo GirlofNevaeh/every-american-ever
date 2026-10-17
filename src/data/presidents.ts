@@ -11,7 +11,7 @@ export type President = {
   bornYear: number;
   died: string | null;
   terms: Term[];
-  facts: [string, string];
+  facts: string[];
   look: FaceSpec;
 };
 
@@ -30,6 +30,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was the first president.",
       "His home, Mount Vernon, is in Virginia.",
+      "He chose to stop after two terms.",
+      "Before he was president, he worked as a surveyor, measuring land.",
     ],
     look: look({
       skin: "pale",
@@ -57,6 +59,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was the second president.",
       "His son, John Quincy Adams, became president later.",
+      "He was from Massachusetts.",
+      "He spoke up for independence before the country was born.",
     ],
     look: look({
       skin: "pale",
@@ -84,6 +88,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He wrote most of the Declaration of Independence.",
       "His home, Monticello, is in Virginia.",
+      "He designed Monticello himself.",
+      "He sent Lewis and Clark to learn about the land in the West.",
     ],
     look: look({
       skin: "light",
@@ -111,6 +117,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He helped write the Constitution.",
       "He was a short man.",
+      "People call him a Father of the Constitution because he helped plan it.",
+      "His wife, Dolley, saved a painting of George Washington when a fire reached the White House.",
     ],
     look: look({
       skin: "pale",
@@ -138,6 +146,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was president when Spain gave Florida to the United States.",
       "He was from Virginia.",
+      "He had been a governor of Virginia before he was president.",
+      "He was one of the last presidents who had helped start the country.",
     ],
     look: look({
       skin: "light",
@@ -165,6 +175,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "His father, John Adams, was also president.",
       "He later served in Congress for many years.",
+      "He was from Massachusetts.",
+      "As a boy, he traveled to Europe with his father.",
     ],
     look: look({
       skin: "pale",
@@ -192,6 +204,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "People called him Old Hickory.",
       "He grew up in the Carolinas and later lived in Tennessee.",
+      "His home, the Hermitage, is in Tennessee.",
+      "He had little schooling, and he later became a lawyer.",
     ],
     look: look({
       skin: "light",
@@ -219,6 +233,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was the first president born after the United States became a country.",
       "He was born in Kinderhook, New York.",
+      "He grew up speaking Dutch at home.",
+      "He was the first president whose first language was not English.",
     ],
     look: look({
       skin: "pale",
@@ -246,6 +262,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He died while he was president, on April 4, 1841.",
       "His grandson, Benjamin Harrison, became president later.",
+      "He was 68 when he became president. That was the oldest age at the time.",
+      "He was from Virginia and later lived in Ohio.",
     ],
     look: look({
       skin: "pale",
@@ -273,6 +291,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He became president when William Henry Harrison died.",
       "He was the first vice president to take the office that way.",
+      "He was from Virginia.",
+      "He had 15 children, more than any other president.",
     ],
     look: look({
       skin: "light",
@@ -300,6 +320,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He said he would serve only one term, and he did.",
       "He was from Tennessee.",
+      "He had been governor of Tennessee.",
+      "He wrote in a diary almost every day he was president.",
     ],
     look: look({
       skin: "light",
@@ -327,6 +349,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He died while he was president, on July 9, 1850.",
       "People called him Old Rough and Ready.",
+      "He was from Virginia and later lived in Louisiana.",
+      "He had been a soldier for many years before he was president.",
     ],
     look: look({
       skin: "light",
@@ -354,6 +378,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He became president when Zachary Taylor died.",
       "He was born in a log cabin in New York.",
+      "He was the 13th president.",
+      "His wife, Abigail, had been a teacher. She started a library in the White House.",
     ],
     look: look({
       skin: "pale",
@@ -378,7 +404,12 @@ export const PRESIDENTS: President[] = [
     bornYear: 1804,
     died: "October 8, 1869",
     terms: [{ start: 1853, end: 1857 }],
-    facts: ["He was from New Hampshire.", "He served one term."],
+    facts: [
+      "He was from New Hampshire.",
+      "He served one term.",
+      "He was the 14th president.",
+      "He had been a lawyer and a senator.",
+    ],
     look: look({
       skin: "light",
       hair: "curly",
@@ -405,6 +436,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was the only president who never married.",
       "He was from Pennsylvania.",
+      "He was the 15th president.",
+      "Before he was president, he spoke for the United States in Russia and in Britain.",
     ],
     look: look({
       skin: "pale",
@@ -432,6 +465,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He died while he was president, on April 15, 1865.",
       "He grew up in a log cabin and later lived in Illinois.",
+      "He stood about 6 feet 4 inches tall.",
+      "He was a lawyer in Illinois before he was president.",
     ],
     look: look({
       skin: "light",
@@ -459,6 +494,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He became president when Abraham Lincoln died.",
       "He had worked as a tailor.",
+      "He was from Tennessee.",
+      "He did not go to school. His wife helped him learn to read and write.",
     ],
     look: look({
       skin: "light",
@@ -483,7 +520,12 @@ export const PRESIDENTS: President[] = [
     bornYear: 1822,
     died: "July 23, 1885",
     terms: [{ start: 1869, end: 1877 }],
-    facts: ["People knew him as a quiet man.", "He liked horses."],
+    facts: [
+      "People knew him as a quiet man.",
+      "He liked horses.",
+      "He was from Ohio.",
+      "His first name was Hiram. People called him Ulysses.",
+    ],
     look: look({
       skin: "light",
       hair: "short",
@@ -510,6 +552,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was from Ohio.",
       "His wife, Lucy, was the first first lady with a college degree.",
+      "He was the 19th president.",
+      "He had been a lawyer and the governor of Ohio.",
     ],
     look: look({
       skin: "light",
@@ -537,6 +581,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He died while he was president, on September 19, 1881.",
       "He could write with both hands.",
+      "He was from Ohio.",
+      "He had been a teacher and a college president.",
     ],
     look: look({
       skin: "light",
@@ -564,6 +610,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He became president when James A. Garfield died.",
       "He liked fine clothes.",
+      "He was born in Vermont and later lived in New York.",
+      "He had the White House repaired, and an elevator was added.",
     ],
     look: look({
       skin: "light",
@@ -594,6 +642,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was both the 22nd and the 24th president.",
       "He served, left office, and then became president again.",
+      "He was from New Jersey and later lived in New York.",
+      "He was the only president who got married in the White House.",
     ],
     look: look({
       skin: "light",
@@ -621,6 +671,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "His grandfather, William Henry Harrison, was also president.",
       "He was from Indiana.",
+      "He was the 23rd president.",
+      "Electric lights were added to the White House while he was president.",
     ],
     look: look({
       skin: "pale",
@@ -648,6 +700,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He died while he was president, on September 14, 1901.",
       "He was from Ohio.",
+      "He was the 25th president.",
+      "He had been governor of Ohio.",
     ],
     look: look({
       skin: "light",
@@ -675,6 +729,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He became president when William McKinley died.",
       "He loved the outdoors and helped set land aside for parks.",
+      "He was 42 when he became president, the youngest person to take the job.",
+      "A stuffed bear was named Teddy after him.",
     ],
     look: look({
       skin: "light",
@@ -702,6 +758,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "After he was president, he became chief justice of the Supreme Court.",
       "He is the only person who has held both jobs.",
+      "He was from Ohio.",
+      "A very large bathtub was put in the White House for him.",
     ],
     look: look({
       skin: "light",
@@ -729,6 +787,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He had been a college president before this job.",
       "He was from Virginia and later lived in New Jersey.",
+      "He was the 28th president.",
+      "He was the first president to earn a Ph.D., a very high college degree.",
     ],
     look: look({
       skin: "light",
@@ -756,6 +816,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He died while he was president, on August 2, 1923.",
       "He was from Ohio.",
+      "He was the 29th president.",
+      "He owned a newspaper in Marion, Ohio.",
     ],
     look: look({
       skin: "light",
@@ -783,6 +845,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He became president when Warren G. Harding died.",
       "People knew him as a quiet man. He was born on July 4.",
+      "He was from Vermont.",
+      "People called him Silent Cal because he spoke very little.",
     ],
     look: look({
       skin: "pale",
@@ -810,6 +874,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "Before he was president, he helped send food to hungry people in Europe.",
       "He was from Iowa.",
+      "He was the 31st president.",
+      "He had been a mining engineer, a person who finds metal and rock in the earth.",
     ],
     look: look({
       skin: "light",
@@ -837,6 +903,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was elected four times. No other president has done that.",
       "He died while he was president, on April 12, 1945.",
+      "He was from New York.",
+      "He had polio. Walking was hard, so he used a wheelchair and still did the job.",
     ],
     look: look({
       skin: "light",
@@ -864,6 +932,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He became president when Franklin D. Roosevelt died.",
       "The S in his name does not stand for a longer name.",
+      "He was from Missouri.",
+      "Before he was president, he ran a store that sold clothes and hats.",
     ],
     look: look({
       skin: "light",
@@ -891,6 +961,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "People called him Ike.",
       "He helped start the big interstate highways.",
+      "He was born in Texas and grew up in Kansas.",
+      "He had led the army in World War II before he was president.",
     ],
     look: look({
       skin: "light",
@@ -918,6 +990,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He died while he was president, on November 22, 1963.",
       "He was the youngest person elected president. He was 43.",
+      "He was from Massachusetts.",
+      "He published a book called Profiles in Courage.",
     ],
     look: look({
       skin: "light",
@@ -945,6 +1019,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He became president when John F. Kennedy died.",
       "He had been a teacher in Texas.",
+      "He was from Texas.",
+      "He was vice president under John F. Kennedy before he became president.",
     ],
     look: look({
       skin: "light",
@@ -972,6 +1048,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He is the only president who resigned.",
       "He left office in 1974, before the term ended.",
+      "He was from California.",
+      "He visited China. No president had done that before.",
     ],
     look: look({
       skin: "light",
@@ -999,6 +1077,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He became president when Richard Nixon resigned.",
       "He had played college football.",
+      "He was from Michigan.",
+      "He is the only person who became president without being elected president or vice president.",
     ],
     look: look({
       skin: "light",
@@ -1026,6 +1106,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was a peanut farmer in Georgia before he was president.",
       "After he was president, he helped build houses for families.",
+      "He taught Sunday school for many years.",
+      "He lived to be 100. He died in 2024.",
     ],
     look: look({
       skin: "light",
@@ -1053,6 +1135,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He had been a movie actor before he was president.",
       "He was from Illinois and later lived in California.",
+      "He had been governor of California.",
+      "He kept a jar of jelly beans in the White House.",
     ],
     look: look({
       skin: "light",
@@ -1080,6 +1164,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "His son, George W. Bush, later became president too.",
       "He had been vice president under Ronald Reagan.",
+      "He was born in Massachusetts and later lived in Texas.",
+      "He was the 41st president.",
     ],
     look: look({
       skin: "light",
@@ -1104,7 +1190,12 @@ export const PRESIDENTS: President[] = [
     bornYear: 1946,
     died: null,
     terms: [{ start: 1993, end: 2001 }],
-    facts: ["He grew up in Arkansas.", "He plays the saxophone."],
+    facts: [
+      "He grew up in Arkansas.",
+      "He plays the saxophone.",
+      "He was the 42nd president.",
+      "He had been governor of Arkansas.",
+    ],
     look: look({
       skin: "light",
       hair: "thick",
@@ -1131,6 +1222,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "His father, George H. W. Bush, was also president.",
       "He was governor of Texas before he was president.",
+      "He was the 43rd president.",
+      "He had helped run a baseball team, the Texas Rangers.",
     ],
     look: look({
       skin: "light",
@@ -1158,6 +1251,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was the first Black president.",
       "He was born in Hawaii.",
+      "He lived in Indonesia for a few years as a child.",
+      "He had been a senator from Illinois.",
     ],
     look: look({
       skin: "brown",
@@ -1188,6 +1283,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He is the 45th president and the 47th president.",
       "He is president now. This term began in 2025.",
+      "He is from New York.",
+      "He is the oldest person to begin a term as president.",
     ],
     look: look({
       skin: "light",
@@ -1215,6 +1312,8 @@ export const PRESIDENTS: President[] = [
     facts: [
       "He was vice president under Barack Obama before he was president.",
       "He is from Delaware.",
+      "He was a senator from Delaware for 36 years.",
+      "When he worked in Washington, he rode the train home to Delaware.",
     ],
     look: look({
       skin: "light",

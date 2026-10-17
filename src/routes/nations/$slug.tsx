@@ -30,9 +30,14 @@ function NationPage() {
       <NationArt nation={nation} />
       <p className="rounded-[1.25rem] border-l-8 border-flag-blue bg-card p-4">{nation.homelands}</p>
       <p className="rounded-[1.25rem] bg-flag-blue p-4 text-white">{nation.remember}</p>
-      {nation.people.map((line) => (
-        <p key={line}>{line}</p>
-      ))}
+      {nation.people.length > 0 ? (
+        <section className="space-y-2">
+          <h2 className="font-display text-2xl">People</h2>
+          {nation.people.map((line) => (
+            <p key={line}>{line}</p>
+          ))}
+        </section>
+      ) : null}
       <p className="font-extrabold">{nation.now}</p>
       <p>A Native nation is not the same thing as a state.</p>
       <Link to="/nations" className="btn w-fit bg-flag-blue text-white">

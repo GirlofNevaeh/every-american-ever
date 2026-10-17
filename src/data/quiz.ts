@@ -340,6 +340,36 @@ function build(): Question[] {
   );
   push("How many states are in the United States?", "50", ["48", "13", "52"], "The United States has 50 states.");
   push(
+    "Which president grew up speaking Dutch?",
+    "Martin Van Buren",
+    ["John Adams", "Theodore Roosevelt", "Calvin Coolidge"],
+    "Martin Van Buren grew up speaking Dutch. He was the first president whose first language was not English.",
+  );
+  push(
+    "Which president had 15 children?",
+    "John Tyler",
+    ["William Henry Harrison", "Grover Cleveland", "John Adams"],
+    "John Tyler had 15 children, more than any other president.",
+  );
+  push(
+    "Who won an Olympic gold medal in the 10,000 meter race in 1964?",
+    "Billy Mills",
+    ["Duke Kahanamoku", "Sitting Bull", "Sacagawea"],
+    "Billy Mills is Oglala Lakota. He won that race.",
+  );
+  push(
+    "Who won Olympic gold medals for swimming and helped make surfing known?",
+    "Duke Kahanamoku",
+    ["Billy Mills", "Nampeyo", "Queen Liliʻuokalani"],
+    "Duke Kahanamoku was Kānaka Maoli. He was a swimmer and a surfer.",
+  );
+  push(
+    "Which Diné leader worked to keep families healthy?",
+    "Annie Dodge Wauneka",
+    ["Wilma Mankiller", "Joy Harjo", "Maria Tallchief"],
+    "Annie Dodge Wauneka was Diné. In 1963 she received the Presidential Medal of Freedom.",
+  );
+  push(
     "What is the capital of the United States?",
     "Washington, D.C.",
     ["New York City", "Philadelphia", "Washington state"],

@@ -55,10 +55,61 @@ function NationsPage() {
       </ul>
       <section id="people" className="card p-5">
         <h2 className="font-display text-3xl">Real people</h2>
-        <ul className="mt-3 space-y-2">
-          <li>Sequoyah made a writing system for the Cherokee language.</li>
-          <li>Wilma Mankiller led the Cherokee Nation.</li>
-          <li>Sacagawea was Lemhi Shoshone. She helped travelers find their way.</li>
+        <ul className="mt-3 space-y-3">
+          <li>
+            <Link to="/nations/$slug" params={{ slug: "wampanoag" }} className="font-extrabold underline">
+              Tisquantum
+            </Link>{" "}
+            was Wampanoag. People also say Squanto. He showed English families at Plymouth how to plant corn.
+          </li>
+          <li>
+            <Link to="/nations/$slug" params={{ slug: "cherokee" }} className="font-extrabold underline">
+              Sequoyah
+            </Link>{" "}
+            was Cherokee. He made a writing system so Cherokee words could be written down.
+          </li>
+          <li>
+            <Link to="/nations/$slug" params={{ slug: "cherokee" }} className="font-extrabold underline">
+              Wilma Mankiller
+            </Link>{" "}
+            led the Cherokee Nation. She was the first woman elected Principal Chief.
+          </li>
+          <li>
+            <Link to="/nations/$slug" params={{ slug: "muscogee" }} className="font-extrabold underline">
+              Joy Harjo
+            </Link>{" "}
+            is Muscogee. She writes poems, and she was the first Native American Poet Laureate of the United States.
+          </li>
+          <li>
+            <Link to="/nations/$slug" params={{ slug: "lakota" }} className="font-extrabold underline">
+              Billy Mills
+            </Link>{" "}
+            is Oglala Lakota. He won an Olympic gold medal for running.
+          </li>
+          <li>
+            <Link to="/nations/$slug" params={{ slug: "shoshone" }} className="font-extrabold underline">
+              Sacagawea
+            </Link>{" "}
+            was Lemhi Shoshone. She helped travelers find their way, and she carried her baby on the trip.
+          </li>
+          <li>
+            <Link to="/nations/$slug" params={{ slug: "dine" }} className="font-extrabold underline">
+              Annie Dodge Wauneka
+            </Link>{" "}
+            was Diné. She worked to keep families healthy.
+          </li>
+          <li>
+            <Link to="/nations/$slug" params={{ slug: "hopi" }} className="font-extrabold underline">
+              Nampeyo
+            </Link>{" "}
+            was a Hopi-Tewa potter. She taught people to make pots in old styles.
+          </li>
+          <li>
+            <Link to="/nations/$slug" params={{ slug: "kanaka-maoli" }} className="font-extrabold underline">
+              Duke Kahanamoku
+            </Link>{" "}
+            was Kānaka Maoli. He was an Olympic swimmer, and he helped make surfing known far from Hawaii.
+          </li>
           <li>Maria Tallchief was Osage. She danced ballet. Osage homelands are on the Plains.</li>
         </ul>
       </section>

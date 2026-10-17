@@ -66,7 +66,8 @@ function PresidentPage() {
             </li>
           ))}
         </ul>
-        <div className="mt-4 space-y-2">
+        <h2 className="mt-4 font-display text-2xl">Facts</h2>
+        <div className="mt-2 space-y-2">
           {person.facts.map((fact) => (
             <p key={fact}>{fact}</p>
           ))}
