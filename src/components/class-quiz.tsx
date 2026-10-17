@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { KIDS } from "@/data/faces";
 import { QUIZ, type Question } from "@/data/quiz";
 import { Portrait } from "@/components/portrait";
+import { armQuizAudio, playCheer, playFart, warmAudio } from "@/lib/quiz-sounds";
 
 type Child = { id: string; name: string; face: string };
 type Team = { id: string; name: string; childIds: string[] };
@@ -47,6 +48,10 @@ export function ClassQuiz() {
   const [game, setGame] = useState<Game | null>(null);
   const [flash, setFlash] = useState(false);
 
+  useEffect(() => {
+    armQuizAudio();
+  }, []);
+
   function addChild() {
     const trimmed = name.trim() || `Child ${children.length + 1}`;
     setChildren((list) => [...list, { id: `c${Date.now()}`, name: trimmed, face }]);
@@ -73,6 +78,7 @@ export function ClassQuiz() {
     const scoreTeams = solo ? [{ id: "solo", name: "You", childIds: [] }] : readyTeams;
     const scores: Record<string, number> = {};
     for (const team of scoreTeams) scores[team.id] = 0;
+    warmAudio();
     setFlash(false);
     setGame({
       count,
@@ -270,6 +276,13 @@ function Play({
   function choose(index: number) {
     if (game.phase !== "ask" || !question) return;
     const correct = index === question.answer;
+    try {
+      warmAudio();
+      if (correct) playCheer();
+      else playFart();
+    } catch {
+      // A failed sound should not stop the quiz.
+    }
     const scores = { ...game.scores, [team.id]: (game.scores[team.id] ?? 0) + (correct ? 1 : 0) };
     setGame({ ...game, phase: "wait", pick: index, scores });
   }
@@ -369,7 +382,7 @@ function Play({
               return <Portrait key={child.id} spec={kid.spec} label={child.name} className="h-20 w-16" />;
             })}
           </div>
-          <button type="button" className="btn mt-4 bg-flag-blue text-white" onClick={() => setGame({ ...game, phase: "ask" })}>
+          <button type="button" className="btn mt-4 bg-flag-blue text-white" onClick={() => { warmAudio(); setGame({ ...game, phase: "ask" }); }}>
             We are ready
           </button>
         </section>
